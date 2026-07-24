@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calling...</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        main {
+            width: min(100%, 400px);
+        }
+
+        a {
+            display: inline-block;
+            padding: 16px 28px;
+            border-radius: 8px;
+            background: #166534;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Opening your phone app...</h1>
+
+        <p>If your phone app does not open automatically:</p>
+
+        <a id="call-link">Tap to Call</a>
+    </main>
+
+    <script>
+        const phoneNumber = new URLSearchParams(window.location.search).get("phone");
+        const telephoneUrl = `tel:${phoneNumber}`;
+        const callLink = document.getElementById("call-link");
+
+        callLink.href = telephoneUrl;
+
+        window.location.href = telephoneUrl;
+    </script>
+</body>
+</html>
